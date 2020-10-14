@@ -4,6 +4,10 @@ version: 0.1.0
 authors:
   - Grip and its Contributors <https://github.com/grip-framework/>
 
+dependencies:
+  jwt:
+    github: crystal-community/jwt
+
 crystal: 0.35.1
 
 license: MIT

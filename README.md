@@ -1,6 +1,6 @@
-# pipes
+# Pipes
 
-TODO: Write a description here
+Pipes are a collection of `HTTP::Handler`'s which extend the possibilities of the Grip framework.
 
 ## Installation
 
@@ -9,7 +9,7 @@ TODO: Write a description here
    ```yaml
    dependencies:
      pipes:
-       github: your-github-user/pipes
+       github: grip-framework/pipes
    ```
 
 2. Run `shards install`
@@ -20,15 +20,9 @@ TODO: Write a description here
 require "pipes"
 ```
 
-TODO: Write usage instructions here
-
-## Development
-
-TODO: Write development instructions here
-
 ## Contributing
 
-1. Fork it (<https://github.com/your-github-user/pipes/fork>)
+1. Fork it (<https://github.com/grip-framework/pipes/fork>)
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
@@ -36,4 +30,4 @@ TODO: Write development instructions here
 
 ## Contributors
 
-- [your-name-here](https://github.com/your-github-user) - creator and maintainer
+- [Giorgi Kavrelishvili](https://github.com/grkek) - creator and maintainer
