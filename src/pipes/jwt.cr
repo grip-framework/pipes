@@ -37,6 +37,7 @@ module Pipes
             begin
               payload, _ = JWT.decode(value[BEARER.size + 1..], @secret_key, @algorithm, **@claims)
               context.assigns.jwt = payload
+              context
             rescue exception
               raise Exceptions::Unauthorized.new
             end

@@ -13,6 +13,8 @@ module Pipes
           context.assigns.ip = addresses[0]
         end
       end
+
+      context
     end
   end
 end

@@ -8,6 +8,7 @@ module Pipes
       context.response.headers["Content-Security-Policy"] = "default-src 'self'" unless context.response.headers.has_key?("Content-Security-Policy")
       context.response.headers["X-Permitted-Cross-Domain-Policies"] = "none" unless context.response.headers.has_key?("X-Permitted-Cross-Domain-Policies")
       context.response.headers["Referrer-Policy"] = "same-origin" unless context.response.headers.has_key?("Referrer-Policy")
+      context
     end
   end
 end

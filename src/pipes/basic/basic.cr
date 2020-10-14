@@ -22,6 +22,7 @@ module Pipes
           if value.size > 0 && value.starts_with?(BASIC)
             if username = authorize?(value)
               context.assigns.basic = username
+              context
             else
               raise Exceptions::Unauthorized.new
             end
