@@ -8,6 +8,10 @@ dependencies:
   jwt:
     github: crystal-community/jwt
 
+  exceptions:
+    github: grip-framework/exceptions
+    branch: master
+
 crystal: 0.35.1
 
 license: MIT
