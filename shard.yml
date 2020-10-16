@@ -10,7 +10,6 @@ dependencies:
 
   exceptions:
     github: grip-framework/exceptions
-    branch: master
 
 crystal: 0.35.1
 
