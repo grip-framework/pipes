@@ -31,25 +31,19 @@ module Pipes
     end
 
     def call(context : HTTP::Server::Context) : HTTP::Server::Context
-      if context.request.headers[AUTH]?
-        if value = context.request.headers[AUTH]
-          if value.size > 0 && value.starts_with?(BEARER)
-            begin
-              payload, _ = JWT.decode(value[BEARER.size + 1..], @secret_key, @algorithm, **@claims)
-              context.assigns.jwt = payload
-              context
-            rescue exception
-              raise Exceptions::Unauthorized.new
-            end
-          else
+      if value = context.request.headers[AUTH]?
+        if value.size > 0 && value.starts_with?(BEARER)
+          begin
+            payload, _ = JWT.decode(value[BEARER.size + 1..], @secret_key, @algorithm, **@claims)
+            context.assigns.jwt = payload
+            return context
+          rescue exception
             raise Exceptions::Unauthorized.new
           end
-        else
-          raise Exceptions::Unauthorized.new
         end
-      else
-        raise Exceptions::Unauthorized.new
       end
+
+      raise Exceptions::Unauthorized.new
     end
   end
 end

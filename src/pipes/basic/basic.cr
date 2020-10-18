@@ -17,27 +17,19 @@ module Pipes
     end
 
     def call(context : HTTP::Server::Context) : HTTP::Server::Context
-      if context.request.headers[AUTH]?
-        if value = context.request.headers[AUTH]
-          if value.size > 0 && value.starts_with?(BASIC)
-            if username = authorize?(value)
-              context.assigns.basic = username
-              context
-            else
-              raise Exceptions::Unauthorized.new
-            end
+      if value = context.request.headers[AUTH]?
+        if value.size > 0 && value.starts_with?(BASIC)
+          if username = authorize?(value)
+            context.assigns.basic = username
+            return context
           else
-            context.response.headers["WWW-Authenticate"] = HEADER_LOGIN_REQUIRED
             raise Exceptions::Unauthorized.new
           end
-        else
-          context.response.headers["WWW-Authenticate"] = HEADER_LOGIN_REQUIRED
-          raise Exceptions::Unauthorized.new
         end
-      else
-        context.response.headers["WWW-Authenticate"] = HEADER_LOGIN_REQUIRED
-        raise Exceptions::Unauthorized.new
       end
+
+      context.response.headers["WWW-Authenticate"] = HEADER_LOGIN_REQUIRED
+      raise Exceptions::Unauthorized.new
     end
 
     def authorize?(value) : String?
