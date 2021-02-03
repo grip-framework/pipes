@@ -31,3 +31,4 @@ require "pipes"
 ## Contributors
 
 - [Giorgi Kavrelishvili](https://github.com/grkek) - creator and maintainer
+- [Dainel Vera](https://github.com/arubinofaux) - contributor
